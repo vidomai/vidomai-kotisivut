@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palvelut — Vidomai</title>
+  <meta name="description" content="Vidomain palvelut: kotisivujen modernisointi, verkkotunnukset, uusien sivujen toteutus ja some-videot.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Vido<span>mai</span></a>
+      <nav class="main-nav" aria-label="Päävalikko">
+        <ul>
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html" aria-current="page">Palvelut</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Palvelut</h1>
+        <p>
+          Digitaaliset asiat kuntoon selkeästi ja ilman turhaa mutkikkuutta.
+        </p>
+      </div>
+      <div class="wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,40 C240,100 480,0 720,30 C960,60 1200,10 1440,50 L1440,100 L0,100 Z" fill="#f9f8f6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container">
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+            </div>
+            <h3>Kotisivujen modernisointi</h3>
+            <p>
+              Onko yrityksesi nykyinen sivusto jäänyt menneelle vuosikymmenelle
+              tai ylläpitokulut liian suuret? Päivitämme sivut tälle
+              vuosituhannelle — nopeasti, kevyesti ja edullisilla
+              ylläpitokustannuksilla. Isompi työ hoituu usein jo yhdessä
+              päivässä.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9z"/></svg>
+            </div>
+            <h3>Verkkotunnukset &amp; brändin suojaus</h3>
+            <p>
+              Varmistamme yrityksesi digitaalisen nimen saatavuuden. Hankimme
+              tarvittavat päätteet (.com, .net, .eu) ja hoidamme
+              verkkoliikenteen ohjauksen avaimet käteen -periaatteella.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+            </div>
+            <h3>Uusien kotisivujen toteutus</h3>
+            <p>
+              Rakennamme kokonaan uudet, selkeät ja toimivat kotisivut
+              yrityksesi tarpeisiin — alusta asti.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg>
+            </div>
+            <h3>Some- ja markkinointivideot</h3>
+            <p>
+              Lyhyitä, aitoja videoita someen — palvelu kehittyy koko ajan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Vidomai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yhteystiedot — Vidomai</title>
+  <meta name="description" content="Ota yhteyttä Vidomaihin — keskustellaan yrityksesi digitaalisista tarpeista.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Vido<span>mai</span></a>
+      <nav class="main-nav" aria-label="Päävalikko">
+        <ul>
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="yhteystiedot.html" aria-current="page">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Ota yhteyttä</h1>
+        <p>
+          Keskustellaan siitä, miten voimme laittaa yrityksesi digitaaliset
+          asiat kuntoon.
+        </p>
+      </div>
+      <div class="wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,40 C240,100 480,0 720,30 C960,60 1200,10 1440,50 L1440,100 L0,100 Z" fill="#f9f8f6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container contact-section">
+        <!-- TODO: päivitä oikea puhelinnumero ja sähköposti kun ne ovat tiedossa -->
+        <ul class="contact-list">
+          <li><strong>Puhelin:</strong> <a href="tel:+358400000000">+358 40 000 0000</a></li>
+          <li><strong>Sähköposti:</strong> <a href="mailto:info@vidomai.fi">info@vidomai.fi</a></li>
+        </ul>
+        <a href="tel:+358400000000" class="button">Soita heti</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Vidomai</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
