@@ -708,15 +708,9 @@ h2 {
 
 .quote-mark {
   font-family: var(--font-heading);
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: 800;
   color: var(--autumn);
-  line-height: 0;
-  vertical-align: -0.18em;
-}
-
-.quote-mark-end {
-  margin-left: 0.15em;
 }
 
 /* Values */
