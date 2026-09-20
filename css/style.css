@@ -308,8 +308,19 @@ h2 {
 
 .service-card p {
   color: var(--text-muted-on-light);
-  margin: 0;
+  margin: 0 0 14px;
   font-size: 0.96rem;
+}
+
+.service-card p:last-child {
+  margin-bottom: 0;
+}
+
+.service-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--wood-dark);
+  margin: 18px 0 10px;
 }
 
 /* Feature rows (etusivun palveluesittely, teksti + kuva vuorotellen) */
