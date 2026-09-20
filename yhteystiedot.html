@@ -40,13 +40,80 @@
     </section>
 
     <section class="services">
-      <div class="container contact-section">
-        <!-- TODO: päivitä oikea puhelinnumero ja sähköposti kun ne ovat tiedossa -->
-        <ul class="contact-list">
-          <li><strong>Puhelin:</strong> <a href="tel:+358400000000">+358 40 000 0000</a></li>
-          <li><strong>Sähköposti:</strong> <a href="mailto:info@vidomai.fi">info@vidomai.fi</a></li>
-        </ul>
-        <a href="tel:+358400000000" class="button">Soita heti</a>
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="form-section">
+            <h2>Lähetä viesti</h2>
+            <p class="intro">Kerro lyhyesti tarpeestasi, niin vastaamme mahdollisimman pian.</p>
+
+            <div class="form-grid" id="contactForm">
+              <div class="form-group">
+                <label for="nimi">Nimi *</label>
+                <input type="text" id="nimi" name="nimi" placeholder="Etunimi Sukunimi" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Sähköposti *</label>
+                <input type="email" id="email" name="email" placeholder="sinä@yritys.fi" required>
+              </div>
+              <div class="form-group">
+                <label for="yritys">Yritys</label>
+                <input type="text" id="yritys" name="yritys" placeholder="Yrityksesi nimi">
+              </div>
+              <div class="form-group">
+                <label for="puhelin">Puhelin</label>
+                <input type="tel" id="puhelin" name="puhelin" placeholder="040 123 4567">
+              </div>
+              <div class="form-group full">
+                <label for="domain">Domain</label>
+                <input type="text" id="domain" name="domain" placeholder="esim. www.vidomai.fi">
+              </div>
+              <div class="form-group full">
+                <label for="viesti">Viesti *</label>
+                <textarea id="viesti" name="viesti" placeholder="Kerro lisää tarpeistasi..." required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="button" class="btn-submit" onclick="submitForm()">Lähetä viesti &rarr;</button>
+                <p class="form-note">* Pakolliset kentät.</p>
+              </div>
+              <div class="success-msg" id="successMsg">
+                Kiitos viestistäsi! Olemme sinuun yhteydessä mahdollisimman pian.
+              </div>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <div class="contact-card-header">
+              <h3>Yhteystiedot</h3>
+              <p>Vastaamme nopeasti</p>
+            </div>
+            <div class="contact-card-body">
+              <div class="company-name">Vidomai Oy</div>
+              <div class="contact-items">
+                <div class="contact-item">
+                  <span>Y-tunnus</span>
+                  <p>3595837-4</p>
+                </div>
+                <div class="contact-item">
+                  <span>Verkkosivut</span>
+                  <a href="https://www.vidomai.fi">www.vidomai.fi</a>
+                </div>
+                <div class="contact-item">
+                  <span>Puhelin</span>
+                  <a href="tel:+358453198595">045 319 8595</a>
+                </div>
+                <div class="contact-item">
+                  <span>Sähköposti</span>
+                  <a href="mailto:asiakaspalvelu@vidomai.fi">asiakaspalvelu@vidomai.fi</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-card-footer">
+              Voit myös soittaa suoraan — vastaamme mielellämme!
+            </div>
+          </aside>
+
+        </div>
       </div>
     </section>
 
@@ -60,6 +127,62 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function submitForm() {
+      const nimi = document.getElementById('nimi').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const viesti = document.getElementById('viesti').value.trim();
+      if (!nimi || !email || !viesti) {
+        alert('Täytä vaaditut kentät (nimi, sähköposti ja viesti).');
+        return;
+      }
+
+      const yritys = document.getElementById('yritys').value.trim();
+      const puhelin = document.getElementById('puhelin').value.trim();
+      const domain = document.getElementById('domain').value.trim();
+
+      const btn = document.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Lähetetään...';
+
+      let viestiTeksti = viesti;
+      if (yritys || puhelin || domain) {
+        viestiTeksti += '\n\n---';
+        if (yritys) viestiTeksti += '\nYritys: ' + yritys;
+        if (puhelin) viestiTeksti += '\nPuhelin: ' + puhelin;
+        if (domain) viestiTeksti += '\nDomain: ' + domain;
+      }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          // TODO: korvaa oma web3forms.com-tilin access key (rekisteröidy sivustolla omalla sähköpostillasi)
+          access_key: 'LISÄÄ_WEB3FORMS_ACCESS_KEY_TÄHÄN',
+          name: nimi,
+          email: email,
+          message: viestiTeksti,
+          subject: 'Uusi yhteydenotto – Vidomai.fi',
+          from_name: 'Vidomai kotisivut'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('successMsg').style.display = 'block';
+          btn.textContent = 'Lähetetty';
+        } else {
+          alert('Virhe lähetyksessä. Yritä uudelleen tai ota yhteyttä sähköpostitse.');
+          btn.disabled = false;
+          btn.textContent = 'Lähetä viesti →';
+        }
+      })
+      .catch(() => {
+        alert('Virhe lähetyksessä. Yritä uudelleen tai ota yhteyttä sähköpostitse.');
+        btn.disabled = false;
+        btn.textContent = 'Lähetä viesti →';
+      });
+    }
   </script>
 
 </body>
