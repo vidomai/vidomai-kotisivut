@@ -695,15 +695,6 @@ h2 {
   font-weight: 600;
 }
 
-.quote-section .quote-signature {
-  display: block;
-  margin-top: 16px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--autumn);
-}
-
 .quote-mark {
   font-family: var(--font-heading);
   font-size: 4rem;
@@ -711,6 +702,15 @@ h2 {
   display: block;
   line-height: 1;
   margin-bottom: 8px;
+  text-align: center;
+}
+
+.quote-mark-end {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 /* Values */
