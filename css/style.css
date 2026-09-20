@@ -695,6 +695,15 @@ h2 {
   font-weight: 600;
 }
 
+.quote-section .quote-signature {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--autumn);
+}
+
 .quote-mark {
   font-family: var(--font-heading);
   font-size: 4rem;
